@@ -1,5 +1,9 @@
 import yfinance as yf
+import streamlit as st
 import pandas as pd
+
+# TItle
+st.title("MSFT SHARPE RATIO")
 
 # Define the ticker and risk-free rate
 ticker = 'MSFT'
@@ -20,8 +24,4 @@ std_dev_return = monthly_returns.std()
 # Calculate the Monthly Sharpe Ratio
 monthly_sharpe_ratio = mean_excess_return / std_dev_return
 
-print()
-print()
-print(f"Ticker: {ticker}")
-print(f"Monthly Sharpe Ratio: {monthly_sharpe_ratio:.3f}")
-
+st.metric(label="MSFT SHARPE RATIO", value=f"${monthly_sharpe_ratio:.2f}")
